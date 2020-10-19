@@ -12,7 +12,9 @@ export default gql`
       }
       launch_success
       rocket {
-        rocket_name
+        rocket {
+          name
+        }
       }
       links {
         reddit_campaign

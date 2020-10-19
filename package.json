@@ -20,7 +20,8 @@
     "moment": "^2.29.1",
     "vue": "^2.6.11",
     "vue-apollo": "^3.0.5",
-    "vue-router": "^3.2.0"
+    "vue-router": "^3.2.0",
+    "vue-simple-spinner": "^1.2.10"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

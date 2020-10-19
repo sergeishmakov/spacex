@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Launches from "../views/Launches";
+import Launch from "../views/Launch";
 
 Vue.use(VueRouter);
 
@@ -9,6 +10,11 @@ const routes = [
     path: "/",
     name: "Launches",
     component: Launches
+  },
+  {
+    path: "/launches/:id",
+    name: "Launch",
+    component: Launch
   },
   {
     path: "/about",

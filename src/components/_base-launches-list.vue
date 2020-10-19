@@ -5,6 +5,9 @@
         :key="launch.id"
         v-for="launch in launches"
         class="list-item"
+        :style="{
+          background: 'url(' + launch.smallBg + ')  center top/cover no-repeat'
+        }"
         title="This image is photo of the rocket"
       >
         <div class="content">
@@ -13,9 +16,9 @@
             <p>{{ launch.from_now }}</p>
           </div>
           <p class="date">{{ launch.date }}</p>
-          <h1 class="rocket-name">{{ launch.rocket.rocket_name }}</h1>
+          <h1 class="rocket-name">{{ launch.rocket.rocket.name }}</h1>
         </div>
-        <Button @click="detailsClick">Details</Button>
+        <Button @click.native="detailsClick(launch.id)">Details</Button>
       </div>
     </transition-group>
   </div>
@@ -31,7 +34,10 @@ export default {
   },
   props: ["launches", "loading", "error"],
   methods: {
-    detailsClick: function() {}
+    detailsClick: function(value) {
+      console.log({ value });
+      this.$router.push(`/launches/${value}`);
+    }
   }
 };
 </script>
@@ -42,7 +48,6 @@ export default {
   width: 100%;
 
   & .list-item {
-    background: url(../assets/falcon9.jpg) center/cover no-repeat;
     width: 100%;
     margin: 0 0 10px 0;
     border: 1px solid #dbdbdb;

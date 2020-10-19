@@ -1,24 +1,26 @@
 <template>
-  <div class="home">
-    <div class="controls">
-      <transition name="title-fade" mode="out-in">
-        <component v-bind:is="currentTitleComponent" class="title" />
-      </transition>
-      <div>
-        <button
-          v-for="tab in tabs"
-          v-bind:key="tab"
-          v-bind:class="['tab-button', { active: currentTab === tab }]"
-          v-on:click="currentTab = tab"
-        >
-          {{ tab }}
-        </button>
+  <Layout>
+    <div class="home">
+      <div class="controls">
+        <transition name="title-fade" mode="out-in">
+          <component v-bind:is="currentTitleComponent" class="title" />
+        </transition>
+        <div>
+          <button
+            v-for="tab in tabs"
+            v-bind:key="tab"
+            v-bind:class="['tab-button', { active: currentTab === tab }]"
+            v-on:click="currentTab = tab"
+          >
+            {{ tab }}
+          </button>
+        </div>
       </div>
+      <transition name="component-fade" mode="out-in">
+        <component v-bind:is="currentTabComponent" class="tab" />
+      </transition>
     </div>
-    <transition name="component-fade" mode="out-in">
-      <component v-bind:is="currentTabComponent" class="tab" />
-    </transition>
-  </div>
+  </Layout>
 </template>
 
 <script>

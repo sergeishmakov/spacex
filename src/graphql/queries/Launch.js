@@ -1,10 +1,11 @@
 import gql from "graphql-tag";
 
 export default gql`
-  query LaunchesUpcoming($sort: String) {
-    launchesUpcoming(sort: $sort) {
+  query Launch($id: ID!) {
+    launch(id: $id) {
       id
       mission_name
+      mission_id
       details
       launch_date_utc
       launch_site {
@@ -14,6 +15,9 @@ export default gql`
       rocket {
         rocket {
           name
+          description
+          company
+          country
         }
       }
       links {

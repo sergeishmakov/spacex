@@ -9,7 +9,7 @@
 
 <script>
 import LaunchesUpcoming from "@/graphql/queries/LaunchesUpcoming";
-import { launchDecorator } from "../utils";
+import { launchDecorator } from "@/utils/helpers";
 
 export default {
   data: function() {

@@ -10,7 +10,7 @@
 
 <script>
 import LaunchesPast from "@/graphql/queries/LaunchesPast";
-import { launchDecorator } from "../utils";
+import { launchDecorator } from "@/utils/helpers";
 
 export default {
   data: function() {

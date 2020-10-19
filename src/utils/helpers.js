@@ -1,5 +1,8 @@
 import moment from "moment";
 import omit from "lodash/omit";
+import camelCase from "lodash/camelCase";
+
+import { rocketsImages } from "@/constants";
 
 export function launchDecorator(launch, forPast = false) {
   return launch
@@ -13,8 +16,10 @@ export function launchDecorator(launch, forPast = false) {
             return `${x}]`;
           })
           .split("]")[0],
-        date: moment(item.launch_date_local).format("lll"),
-        from_now: moment(item.launch_date_local).fromNow()
+        date: moment(item.launch_date_local).format("MM.DD.YY"),
+        from_now: moment(item.launch_date_local).fromNow(),
+        smallBg: rocketsImages[camelCase(item.rocket.rocket.name)].small,
+        largeBg: rocketsImages[camelCase(item.rocket.rocket.name)].large
       };
     })
     .filter(Boolean);
